@@ -36,8 +36,8 @@
 				position: "fixed",
 				bottom: "35px",
 				right: 0,
-				width: "300px",
-				height: "300px",
+				width: "500px",
+				height: "500px",
 				marginTop: "-104px"
 			}).appendTo("body");
 

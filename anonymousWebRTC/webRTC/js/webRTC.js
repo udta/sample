@@ -31,7 +31,7 @@ window.onload = function() {
 
 	$.ajax({
 		type: "GET",
-		url: "./webRTC/webrtc_settings.json",
+		url: "./webrtc_settings.json",
 		dataType: "json",
 		async: false,
 		success: function(data) {
