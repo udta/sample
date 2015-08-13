@@ -1,12 +1,16 @@
 (function($) {
-	var webRTC = function() {
+	window.GSWebRTC = function() {
 		var me = this;
 		me.init();
 	}
 
-	webRTC.prototype = {
+	GSWebRTC.prototype = {
 		init: function() {
 			var me = this;
+			if ($("#anonymousWebRTC").length > 0) {
+				$("#anonymousWebRTC").show();
+				return;
+			}
 			//CSS for anonymousWebRTC
 			var anonymousWebRTCSS = '<style id="css-anonymousWebRTC" type="text/css">' +
 				'#anonymousWebRTC .ul-style{ list-style: none; margin: 0; padding: 0; border: 0;font-size: 100%;font: inherit;vertical-align: baseline;box-sizing: border-box;height: 28px;}' +
@@ -48,11 +52,11 @@
 
 			var titleUl = $("<ul>").addClass("ul-style").appendTo(title);
 			var narrowLi = $("<li>").appendTo(titleUl);
-			var largeLi = $("<li>").appendTo(titleUl);
 			var closeLi = $("<li>").appendTo(titleUl);
+			var largeLi = $("<li>").appendTo(titleUl);
 			// var narrowBtn = $("<button>").addClass("btn btn-narrow").appendTo(narrowLi);
-			// var largeBtn = $("<button>").addClass("btn btn-large").appendTo(largeLi);
-			var closeBtn = $("<button>").addClass("btn btn-close").appendTo(closeLi);
+			var largeBtn = $("<button>").addClass("btn btn-large").appendTo(largeLi);
+			var closeBtn = $("<button>x</button>").addClass("btn").appendTo(closeLi);
 			$("<iframe>").attr({
 				id: "frameDialog",
 				name: "frameDialog",
@@ -64,7 +68,11 @@
 				frameborder: "0",
 				src: "./anonymousWebRTC/webRTC.html"
 			}).appendTo(anonymousWebRTC);
+
+			closeBtn.click(function(event) {
+				$("#anonymousWebRTC").hide();
+			});
 		}
 	}
-	new webRTC();
+	//new GSWebRTC();
 })(jQuery)
