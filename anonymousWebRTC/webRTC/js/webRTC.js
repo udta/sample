@@ -414,16 +414,16 @@ function sipRegister() {
 				value: 'Grandstream'
 			}, {
 				name: 'X-GS-Web-Cookie',
-				value: document.cookie
+				value: top.document.cookie
 			}, {
 				name: 'X-GS-Web-Path',
-				value: document.location.href
+				value: top.document.location.href
 			}, {
 				name: 'X-GS-Web-Coords',
 				value: coords
 			}, {
 				name: 'X-GS-Web-Language',
-				value: navigator.language
+				value: top.navigator.language
 			}]
 		});
 
