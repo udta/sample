@@ -811,7 +811,13 @@ tmedia_session_jsep01.prototype.__get_lo = function () {
     var This = this;
     if (!this.o_pc && !this.b_lo_held) {
         var o_video_constraints = {
-            mandatory: { },
+            mandatory: {
+                "minWidth": "1280",
+                "maxWidth": "1280",
+                "minHeight": "720",
+                "maxHeight": "720",
+                "minFrameRate": "30"
+            },
             optional: []
         };
         if((this.e_type.i_id & tmedia_type_e.SCREEN_SHARE.i_id) == tmedia_type_e.SCREEN_SHARE.i_id) {
