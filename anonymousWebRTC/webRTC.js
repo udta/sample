@@ -9,10 +9,10 @@
 			var me = this;
 			if ($("#anonymousWebRTC").length > 0) {
 				$("#anonymousWebRTC").show();
-				var mWindow = top.frames['frameDialog'];
-				if (mWindow.sipRegister) {					
-					mWindow.sipRegister();
-				}
+				// var mWindow = top.frames['frameDialog'];
+				// if (mWindow.sipRegister) {					
+				// 	mWindow.sipRegister();
+				// }
 				return;
 			}
 			//CSS for anonymousWebRTC
@@ -79,5 +79,5 @@
 			});
 		}
 	}
-	new GSWebRTC();
+	//new GSWebRTC();
 })(jQuery)
