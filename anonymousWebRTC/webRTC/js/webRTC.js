@@ -294,10 +294,10 @@ function postInit() {
 			video: undefined
 		},
 		video_size: {
-			minWidth: 1280,
-			minHeight: 1280,
-			maxWidth: 1280,
-			maxHeight: 1280
+			minWidth: undefined,
+			minHeight: undefined,
+			maxWidth: undefined,
+			maxHeight: undefined
 		},
 		events_listener: {
 			events: '*',
@@ -475,12 +475,7 @@ function sipCall(s_type) {
 
 		if (window.localStorage) {
 			oConfigCall.bandwidth = tsk_string_to_object(window.localStorage.getItem('org.doubango.expert.bandwidth')); // already defined at stack-level but redifined to use latest values
-			oConfigCall.video_size = {
-				minWidth: 1280,
-				minHeight: 1280,
-				maxWidth: 1280,
-				maxHeight: 1280
-			}; // already defined at stack-level but redifined to use latest values
+			oConfigCall.video_size = tsk_string_to_object(window.localStorage.getItem('org.doubango.expert.video_size')); // already defined at stack-level but redifined to use latest values
 		}
 
 		// create call session

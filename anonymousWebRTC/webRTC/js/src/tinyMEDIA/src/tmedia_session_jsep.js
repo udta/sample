@@ -883,16 +883,7 @@ tmedia_session_jsep01.prototype.__get_lo = function () {
                         {
                             audio: (this.e_type == tmedia_type_e.SCREEN_SHARE) ? false : !!(this.e_type.i_id & tmedia_type_e.AUDIO.i_id), // IMPORTANT: Chrome '28.0.1500.95 m' doesn't support using audio with screenshare
                             //video: !!(this.e_type.i_id & tmedia_type_e.VIDEO.i_id) ? o_video_constraints : false, // "SCREEN_SHARE" contains "VIDEO" flag -> (VIDEO & SCREEN_SHARE) = VIDEO
-                            video:{
-                                mandatory: { minAspectRatio: 1.333, maxAspectRatio: 1.334 },
-                                optional [
-                                    { minFrameRate: 60 },
-                                    { maxWidth: 640 },
-                                    { maxHeigth: 480 }
-                                ]
-                            },
-                            data: false
-                        },
+                            video:{ mandatory: { minWidth: 1024, minHeight: 768 } },
                         tmedia_session_jsep01.mozThis ? tmedia_session_jsep01.onGetUserMediaSuccess : function (o_stream) { tmedia_session_jsep01.onGetUserMediaSuccess(o_stream, This); },
                         tmedia_session_jsep01.mozThis ? tmedia_session_jsep01.onGetUserMediaError : function (s_error) { tmedia_session_jsep01.onGetUserMediaError(s_error, This); }
                     );
