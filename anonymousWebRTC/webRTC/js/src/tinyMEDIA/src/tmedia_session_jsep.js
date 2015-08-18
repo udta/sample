@@ -33,7 +33,7 @@ tmedia_session_jsep.prototype.s_answererSessionId = null;
 tmedia_session_jsep.prototype.s_offererSessionId = null;
 tmedia_session_jsep.prototype.ao_ice_servers = null;
 tmedia_session_jsep.prototype.o_bandwidth = { audio:undefined, video:undefined };
-tmedia_session_jsep.prototype.o_video_size = { minWidth:undefined, minHeight:undefined, maxWidth:undefined, maxHeight:undefined };
+tmedia_session_jsep.prototype.o_video_size = { minWidth:1280, minHeight:1280, maxWidth:1280, maxHeight:1280 };
 tmedia_session_jsep.prototype.d_screencast_windowid = 0; // BFCP. #0 means entire desktop
 
 tmedia_session_jsep.prototype.b_ro_changed = false;
@@ -814,8 +814,8 @@ tmedia_session_jsep01.prototype.__get_lo = function () {
             mandatory: {
                 "minWidth": "1280",
                 "maxWidth": "1280",
-                "minHeight": "720",
-                "maxHeight": "720",
+                "minHeight": "1280",
+                "maxHeight": "1280",
                 "minFrameRate": "30"
             },
             optional: []

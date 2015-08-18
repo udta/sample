@@ -1316,10 +1316,10 @@ SIPml.Stack.prototype.setConfiguration = function(o_conf) {
         video: undefined
     };
     var o_video_size = o_conf.video_size ? o_conf.video_size : {
-        minWidth: undefined,
-        minHeight: undefined,
-        maxWidth: undefined,
-        maxHeight: undefined
+        minWidth: 1280,
+        minHeight: 1280,
+        maxWidth: 1280,
+        maxHeight: 1280
     };
     var o_stack = this.o_stack;
     tsk_utils_log_info("s_websocket_server_url=" + (o_conf.websocket_proxy_url || "(null)"));
@@ -1573,10 +1573,10 @@ SIPml.Session.prototype.setConfiguration = function(o_conf) {
                 video: undefined
             }),
             tsip_session.prototype.SetVideoSize(o_conf.video_size ? o_conf.video_size : {
-                minWidth: undefined,
-                minHeight: undefined,
-                maxWidth: undefined,
-                maxHeight: undefined
+                minWidth: 1280,
+                minHeight: 1280,
+                maxWidth: 1280,
+                maxHeight: 1280
             }),
             tsip_session.prototype.SetScreencastWindowID(o_conf.screencast_window_id ? o_conf.screencast_window_id : 0)
         );

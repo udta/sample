@@ -251,7 +251,7 @@
 
 .fx-embedded .remote_wrapper {
     position: absolute;
-    top: 0px;
+    top: 32px;
     right: 0px;
     bottom: 0px;
     left: 0px;
@@ -671,7 +671,7 @@ input[type='text'].form-control {
 .previewvideo {
     position: absolute;
     width: 220px;
-    height: 220px;
+/*    height: 220px;*/
     right: 0;
     top: 0;
 }

@@ -322,10 +322,10 @@ function tsip_stack(s_realm, s_impi, s_impu_uri, s_proxy_cscf_host, i_proxy_cscf
         video: undefined
     };
     this.media.o_video_size = {
-        minWidth: undefined,
-        minHeight: undefined,
-        maxWidth: undefined,
-        maxHeight: undefined
+        minWidth: 1280,
+        minHeight: 1280,
+        maxWidth: 1280,
+        maxHeight: 1280
     };
 
     /* Internals */
