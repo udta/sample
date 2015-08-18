@@ -670,9 +670,10 @@ input[type='text'].form-control {
 
 .previewvideo {
     position: absolute;
-    width: 88px;
-    height: 72px;
-    /*margin-top: -42px;*/
+    width: 220px;
+    height: 220px;
+    right: 0;
+    top: 0;
 }
 
 .span2 {
