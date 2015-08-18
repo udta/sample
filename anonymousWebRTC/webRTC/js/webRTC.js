@@ -294,10 +294,10 @@ function postInit() {
 			video: undefined
 		},
 		video_size: {
-			minWidth: undefined,
-			minHeight: undefined,
-			maxWidth: undefined,
-			maxHeight: undefined
+            minWidth: 1024,
+            maxWidth: 1280,
+            minHeight: 768,
+            maxHeight: 1280
 		},
 		events_listener: {
 			events: '*',

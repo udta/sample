@@ -812,11 +812,11 @@ tmedia_session_jsep01.prototype.__get_lo = function () {
     if (!this.o_pc && !this.b_lo_held) {
         var o_video_constraints = {
             mandatory: {
-                "minWidth": "1280",
-                "maxWidth": "1280",
-                "minHeight": "1280",
-                "maxHeight": "1280",
-                "minFrameRate": "30"
+                minWidth: 1024,
+                maxWidth: 1280,
+                minHeight: 768,
+                maxHeight: 1280,
+                minFrameRate: 30
             },
             optional: []
         };
@@ -882,8 +882,7 @@ tmedia_session_jsep01.prototype.__get_lo = function () {
                 navigator.nativeGetUserMedia(
                         {
                             audio: (this.e_type == tmedia_type_e.SCREEN_SHARE) ? false : !!(this.e_type.i_id & tmedia_type_e.AUDIO.i_id), // IMPORTANT: Chrome '28.0.1500.95 m' doesn't support using audio with screenshare
-                            //video: !!(this.e_type.i_id & tmedia_type_e.VIDEO.i_id) ? o_video_constraints : false, // "SCREEN_SHARE" contains "VIDEO" flag -> (VIDEO & SCREEN_SHARE) = VIDEO
-                            video: { mandatory: { minWidth: 1024, minHeight: 768 } },
+                            video: !!(this.e_type.i_id & tmedia_type_e.VIDEO.i_id) ? o_video_constraints : false, // "SCREEN_SHARE" contains "VIDEO" flag -> (VIDEO & SCREEN_SHARE) = VIDEO
                             data: false
                         },
                         tmedia_session_jsep01.mozThis ? tmedia_session_jsep01.onGetUserMediaSuccess : function (o_stream) { tmedia_session_jsep01.onGetUserMediaSuccess(o_stream, This); },
