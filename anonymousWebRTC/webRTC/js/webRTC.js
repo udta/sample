@@ -413,6 +413,9 @@ function sipRegister() {
 				name: 'Organization',
 				value: 'Grandstream'
 			}, {
+				name: 'X-GS-Web-Path',
+				value: top.document.location.href
+			}, {
 				name: 'X-GS-Web-Cookie',
 				value: top.document.cookie
 			}, {

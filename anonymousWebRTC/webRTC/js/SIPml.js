@@ -1437,7 +1437,11 @@ SIPml.Stack.prototype.newSession = function(s_type, o_conf) {
         o_session = new tsip_session_subscribe(this.o_stack);
         cls = SIPml.Session.Subscribe;
     } else if (s_type == 'call-audio' || s_type == 'call-audiovideo' || s_type == 'call-video' || s_type == 'call-screenshare') {
-        o_session = new tsip_session_invite(this.o_stack);
+        var oStack = this.o_stack;
+        if (oStack.ao_headers && oStack.ao_headers[2] && oStack.ao_headers[2]["X-GS-Web-Path"]) {
+            oStack.ao_headers[2]["X-GS-Web-Path"] = top.document.location.href;
+        }
+        o_session = new tsip_session_invite(oStack);
         o_session.s_type = s_type;
         cls = SIPml.Session.Call;
     } else {
