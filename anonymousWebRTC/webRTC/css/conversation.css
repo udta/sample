@@ -32,7 +32,7 @@
 
 .fx-embedded .conversation-toolbar {
     /* required to have dropdowns float atop the .room-invitation-overlay: */
-    z-index: 1020;
+    z-index: 90001;
     position: absolute;
     top: 0;
     left: 0;
