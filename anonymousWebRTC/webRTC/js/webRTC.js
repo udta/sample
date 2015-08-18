@@ -716,8 +716,8 @@ function onKeyUp(evt) {
 function onDivCallCtrlMouseMove(evt) {
 	try { // IE: DOM not ready
 		if (tsk_utils_have_stream()) {
-			btnAudio.disabled = (!tsk_utils_have_stream() || !oSipSessionRegister || !oSipSessionRegister.is_connected());
-			document.getElementById("divCallCtrl").onmousemove = null; // unsubscribe
+			// btnAudio.disabled = (!tsk_utils_have_stream() || !oSipSessionRegister || !oSipSessionRegister.is_connected());
+			// document.getElementById("divCallCtrl").onmousemove = null; // unsubscribe
 		}
 	} catch (e) {}
 }
