@@ -17,6 +17,7 @@
 			}
 			//CSS for anonymousWebRTC
 			var anonymousWebRTCSS = '<style id="css-anonymousWebRTC" type="text/css">' +
+				'#anonymousWebRTC{ display: none;}' +
 				'#anonymousWebRTC .ul-style{ list-style: none; margin: 0; padding: 0; border: 0;font-size: 100%;font: inherit;vertical-align: baseline;box-sizing: border-box;height: 28px;}' +
 				'#anonymousWebRTC .ul-style li { float: right; height: 28px;}' +
 				'#anonymousWebRTC .btn{ width: 28px; height: 28px; display: inline-block; margin: 0; padding: 0; outline：none; border: none; background: #2B2118; background-position: center; background-repeat: no-repeat; color: #fff; text-align: center; text-decoration: none; font-size: .9em; cursor: pointer;}' +
