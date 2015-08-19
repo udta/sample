@@ -251,7 +251,7 @@
 
 .fx-embedded .remote_wrapper {
     position: absolute;
-    top: 32px;
+    /*top: 32px;*/
     right: 0px;
     bottom: 0px;
     left: 0px;
