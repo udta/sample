@@ -479,7 +479,7 @@ function sipRegister() {
 		// create SIP stack
 		oSipStack = new SIPml.Stack({
 			realm: webrtcSettings.realm, //"Grandstream",//txtRealm.value,
-			impi: displayName, //"Anonymous",//txtPrivateIdentity.value,
+			impi: "WebRTC(" + displayName + ")", //"Anonymous",//txtPrivateIdentity.value,
 			impu: webrtcSettings.impu, //"sip:anonymous@anonymous.invalid",//txtPublicIdentity.value,
 			password: txtPassword.value,
 			display_name: displayName, //"Anonymous",//txtDisplayName.value,

@@ -60,7 +60,7 @@
 		render: function() {
 			var anonymousWebRTC = $("<div id='anonymousWebRTC'>").css({
 				position: "fixed",
-				bottom: "30px",
+				bottom: "5px",
 				right: 0,
 				width: "500px",
 				height: "480px",
