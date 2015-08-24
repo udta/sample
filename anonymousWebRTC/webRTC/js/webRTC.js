@@ -479,10 +479,10 @@ function sipRegister() {
 		// create SIP stack
 		oSipStack = new SIPml.Stack({
 			realm: webrtcSettings.realm, //"Grandstream",//txtRealm.value,
-			impi: "WebRTC(" + displayName + ")", //"Anonymous",//txtPrivateIdentity.value,
+			impi: displayName, //"Anonymous",//txtPrivateIdentity.value,
 			impu: webrtcSettings.impu, //"sip:anonymous@anonymous.invalid",//txtPublicIdentity.value,
 			password: txtPassword.value,
-			display_name: displayName, //"Anonymous",//txtDisplayName.value,
+			display_name: "WebRTC from "+displayName, //"Anonymous",//txtDisplayName.value,
 			websocket_proxy_url: webrtcSettings.websocket_proxy_url, //"ws://192.168.124.129:8088/ws",//(window.localStorage ? window.localStorage.getItem('org.doubango.expert.websocket_server_url') : null),
 			outbound_proxy_url: (window.localStorage ? window.localStorage.getItem('org.doubango.expert.sip_outboundproxy_url') : null),
 			ice_servers: (window.localStorage ? window.localStorage.getItem('org.doubango.expert.ice_servers') : null),
