@@ -60,7 +60,7 @@
 		render: function() {
 			var anonymousWebRTC = $("<div id='anonymousWebRTC'>").css({
 				position: "fixed",
-				bottom: "5px",
+				bottom: "35px",
 				right: 0,
 				width: "500px",
 				height: "480px",
@@ -113,13 +113,16 @@
 						height: "480px"
 					});
 					$("#callStatus", mWindow.document).css("top", "200px");
+					$("#divVideoLocal", mWindow.document).removeClass("previewvideo-large");
+					//$("#divVideo", mWindow.document).attr("height", "100%").removeAttr("width");
 				} else {
 					flag = false;
 					$("#anonymousWebRTC").css({
 						width: "100%",
-						height: "100%"
+						height: "96%"
 					});
 					$("#callStatus", mWindow.document).css("top", "300px");
+					//$("#divVideo", mWindow.document).attr("width", "100%").removeAttr("height");
 				}
 			});
 			// largeBtn.click(function(event) {

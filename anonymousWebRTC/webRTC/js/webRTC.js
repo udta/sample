@@ -123,25 +123,25 @@ window.onload = function() {
 	//         }
 	//     }
 	// }
-	$(videoLocal).click(function(ev) {
-		var videoLocalSrc = $(videoLocal).attr("src");
-		var videoRemoteSrc = $(videoRemote).attr("src");
+	// $(videoLocal).click(function(ev) {
+	// 	var videoLocalSrc = $(videoLocal).attr("src");
+	// 	var videoRemoteSrc = $(videoRemote).attr("src");
 
-		if (!!videoLocalSrc && !!videoRemoteSrc) {
-			$(videoRemote).attr("src", videoLocalSrc);
-			$(this).attr("src", videoRemoteSrc);
-		}
-	});
+	// 	if (!!videoLocalSrc && !!videoRemoteSrc) {
+	// 		$(videoRemote).attr("src", videoLocalSrc);
+	// 		$(this).attr("src", videoRemoteSrc);
+	// 	}
+	// });
 
-	$(videoRemote).click(function(ev) {
-		var videoLocalSrc = $(videoLocal).attr("src");
-		var videoRemoteSrc = $(videoRemote).attr("src");
+	// $(videoRemote).click(function(ev) {
+	// 	var videoLocalSrc = $(videoLocal).attr("src");
+	// 	var videoRemoteSrc = $(videoRemote).attr("src");
 
-		if (!!videoLocalSrc && !!videoRemoteSrc) {
-			$(videoLocal).attr("src", videoRemoteSrc);
-			$(this).attr("src", videoLocalSrc);
-		}
-	});
+	// 	if (!!videoLocalSrc && !!videoRemoteSrc) {
+	// 		$(videoLocal).attr("src", videoRemoteSrc);
+	// 		$(this).attr("src", videoLocalSrc);
+	// 	}
+	// });
 	//getLocation();
 	// getIPs(function(ip){
 	//     //local IPs
@@ -513,7 +513,7 @@ function sipRegister() {
 			impi: displayName, //"Anonymous",//txtPrivateIdentity.value,
 			impu: webrtcSettings.impu, //"sip:anonymous@anonymous.invalid",//txtPublicIdentity.value,
 			password: txtPassword.value,
-			display_name: "WebRTC from "+ displayName, //"Anonymous",//txtDisplayName.value,
+			display_name: "WebRTC from " + displayName, //"Anonymous",//txtDisplayName.value,
 			websocket_proxy_url: webrtcSettings.websocket_proxy_url, //"ws://192.168.124.129:8088/ws",//(window.localStorage ? window.localStorage.getItem('org.doubango.expert.websocket_server_url') : null),
 			outbound_proxy_url: (window.localStorage ? window.localStorage.getItem('org.doubango.expert.sip_outboundproxy_url') : null),
 			ice_servers: (window.localStorage ? window.localStorage.getItem('org.doubango.expert.ice_servers') : null),
@@ -543,7 +543,7 @@ function sipRegister() {
 				value: coords
 			}, {
 				name: 'X-GS-Public-IP',
-                value: displayName
+				value: displayName
 
 			}, {
 				name: 'X-GS-Web-Language',
@@ -743,7 +743,7 @@ function sipToggleMute() {
 
 // terminates the call (SIP BYE or CANCEL)
 function sipHangUp() {
-	$("#callStatusMsg").attr("src", "puff.svg");
+	$("#callStatusMsg").attr("src", "../images/puff.svg");
 	$("#video_local").attr("src", "");
 	if (oSipSessionCall) {
 		txtCallStatus.innerHTML = '<i>Terminating the call...</i>';
@@ -929,8 +929,8 @@ function uiVideoDisplayEvent(b_local, b_added) {
 
 function uiVideoDisplayShowHide(b_show) {
 	if (b_show) {
-		divCallCtrl.style.height = '340px';
-		divVideo.style.height = navigator.appName == 'Microsoft Internet Explorer' ? '100%' : '340px';
+		divCallCtrl.style.height = '100%';
+		divVideo.style.height = navigator.appName == 'Microsoft Internet Explorer' ? '100%' : '100%';
 	} else {
 		divCallCtrl.style.height = '0px';
 		divVideo.style.height = '0px';
@@ -1000,6 +1000,7 @@ function uiCallTerminated(s_description) {
 	$(btnHoldResume).addClass("hide");
 	btnHoldResume.disabled = true;
 	$(btnTransfer).addClass("hide");
+	$("#divCallCtrl").removeClass("bgBlack");
 	btnTransfer.disabled = true;
 	$(btnKeyPad).addClass("hide");
 	btnKeyPad.disabled = true;
@@ -1164,11 +1165,12 @@ function onSipEventSession(e /* SIPml.Session.Event */ ) {
 							btnHoldResume.disabled = false;
 							$(btnTransfer).removeClass("hide");
 							btnTransfer.disabled = false;
+							$("#divCallCtrl").addClass("bgBlack");
 							$(btnKeyPad).removeClass("hide");
 							if ($("#video_local").attr("src")) {
 								$("#callStatus").hide();
 							} else {
-								$("#callStatusMsg").attr("src", "bars.svg");
+								$("#callStatusMsg").attr("src", "../images/bars.svg");
 							}
 							//alert($("#video_local").attr("src"));
 							blertyPad.disabled = false;
