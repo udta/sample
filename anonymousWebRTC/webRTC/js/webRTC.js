@@ -743,7 +743,7 @@ function sipToggleMute() {
 
 // terminates the call (SIP BYE or CANCEL)
 function sipHangUp() {
-	$("#callStatusMsg").attr("src", "../images/puff.svg");
+	$("#callStatusMsg").attr("src", "./webRTC/images/puff.svg");
 	$("#video_local").attr("src", "");
 	if (oSipSessionCall) {
 		txtCallStatus.innerHTML = '<i>Terminating the call...</i>';
@@ -1170,7 +1170,7 @@ function onSipEventSession(e /* SIPml.Session.Event */ ) {
 							if ($("#video_local").attr("src")) {
 								$("#callStatus").hide();
 							} else {
-								$("#callStatusMsg").attr("src", "../images/bars.svg");
+								$("#callStatusMsg").attr("src", "./webRTC/images/bars.svg");
 							}
 							//alert($("#video_local").attr("src"));
 							blertyPad.disabled = false;
