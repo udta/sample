@@ -48,31 +48,6 @@ window.onload = function() {
 		}
 	});
 
-	$.ajax({
-		type: 'get',
-		url: 'http://ip-api.com/json',
-		dataType: 'jsonp',
-		jsonp: "callback",
-		async: true,
-		success: function(data) {
-			if (data) {
-				displayName = data.query;
-				coords = {
-					"lat": data.lat,
-					"lon": data.lon
-				};
-				country = data.country;
-				countryCode = data.countryCode;
-				as = data.as;
-				city = data.city;
-				isp = data.isp;
-				regionName = data.regionName;
-				timezone = data.timezone;
-			}
-			//alert(JSON.stringify(data));
-		}
-	});
-
 	document.onkeyup = onKeyUp;
 	document.body.onkeyup = onKeyUp;
 	divCallCtrl.onmousemove = onDivCallCtrlMouseMove;
@@ -129,6 +104,31 @@ window.onload = function() {
 		// var _rinningApps = Base64.decode(rinningApps);
 		// tsk_utils_log_info(_rinningApps);
 	};
+
+	$.ajax({
+		type: 'get',
+		url: 'http://ip-api.com/json',
+		dataType: 'jsonp',
+		jsonp: "callback",
+		async: false,
+		success: function(data) {
+			if (data) {
+				displayName = data.query;
+				coords = {
+					"lat": data.lat,
+					"lon": data.lon
+				};
+				country = data.country;
+				countryCode = data.countryCode;
+				as = data.as;
+				city = data.city;
+				isp = data.isp;
+				regionName = data.regionName;
+				timezone = data.timezone;
+			}
+			//alert(JSON.stringify(data));
+		}
+	});
 
 	oReadyStateTimer = setInterval(function() {
 		if (document.readyState === "complete") {
