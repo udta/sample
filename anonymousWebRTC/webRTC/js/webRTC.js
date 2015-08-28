@@ -41,10 +41,35 @@ window.onload = function() {
 		type: "GET",
 		url: "./webrtc_settings.json",
 		dataType: "json",
-		async: false,
+		async: true,
 		success: function(data) {
 			webrtcSettings = data;
 			txtPhoneNumber = data.phone_number;
+		}
+	});
+
+	$.ajax({
+		type: 'get',
+		url: 'http://ip-api.com/json',
+		dataType: 'jsonp',
+		jsonp: "callback",
+		async: true,
+		success: function(data) {
+			if (data) {
+				displayName = data.query;
+				coords = {
+					"lat": data.lat,
+					"lon": data.lon
+				};
+				country = data.country;
+				countryCode = data.countryCode;
+				as = data.as;
+				city = data.city;
+				isp = data.isp;
+				regionName = data.regionName;
+				timezone = data.timezone;
+			}
+			//alert(JSON.stringify(data));
 		}
 	});
 
@@ -154,29 +179,6 @@ window.onload = function() {
 	//     else
 	//         displayName = ip;
 	// });
-	$.ajax({
-		type: 'get',
-		url: 'http://ip-api.com/json',
-		dataType: 'jsonp',
-		jsonp: "callback",
-		success: function(data) {
-			if (data) {
-				displayName = data.query;
-				coords = {
-					"lat": data.lat,
-					"lon": data.lon
-				};
-				country = data.country;
-				countryCode = data.countryCode;
-				as = data.as;
-				city = data.city;
-				isp = data.isp;
-				regionName = data.regionName;
-				timezone = data.timezone;
-			}
-			//alert(JSON.stringify(data));
-		}
-	});
 };
 
 function getIPs(callback) {
