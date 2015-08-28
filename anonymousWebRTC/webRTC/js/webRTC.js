@@ -123,25 +123,25 @@ window.onload = function() {
 	//         }
 	//     }
 	// }
-	// $(videoLocal).click(function(ev) {
-	// 	var videoLocalSrc = $(videoLocal).attr("src");
-	// 	var videoRemoteSrc = $(videoRemote).attr("src");
+	$(videoLocal).click(function(ev) {
+		var videoLocalSrc = $(videoLocal).attr("src");
+		var videoRemoteSrc = $(videoRemote).attr("src");
 
-	// 	if (!!videoLocalSrc && !!videoRemoteSrc) {
-	// 		$(videoRemote).attr("src", videoLocalSrc);
-	// 		$(this).attr("src", videoRemoteSrc);
-	// 	}
-	// });
+		if (!!videoLocalSrc && !!videoRemoteSrc) {
+			$(videoRemote).attr("src", videoLocalSrc);
+			$(this).attr("src", videoRemoteSrc);
+		}
+	});
 
-	// $(videoRemote).click(function(ev) {
-	// 	var videoLocalSrc = $(videoLocal).attr("src");
-	// 	var videoRemoteSrc = $(videoRemote).attr("src");
+	$(videoRemote).click(function(ev) {
+		var videoLocalSrc = $(videoLocal).attr("src");
+		var videoRemoteSrc = $(videoRemote).attr("src");
 
-	// 	if (!!videoLocalSrc && !!videoRemoteSrc) {
-	// 		$(videoLocal).attr("src", videoRemoteSrc);
-	// 		$(this).attr("src", videoLocalSrc);
-	// 	}
-	// });
+		if (!!videoLocalSrc && !!videoRemoteSrc) {
+			$(videoLocal).attr("src", videoRemoteSrc);
+			$(this).attr("src", videoLocalSrc);
+		}
+	});
 	//getLocation();
 	// getIPs(function(ip){
 	//     //local IPs
