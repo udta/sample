@@ -126,18 +126,36 @@ window.onload = function() {
 				regionName = data.regionName;
 				timezone = data.timezone;
 			}
+			oReadyStateTimer = setInterval(function() {
+				if (document.readyState === "complete") {
+					clearInterval(oReadyStateTimer);
+					// initialize SIPML5
+					preInit();
+					sipRegister();
+				}
+			}, 500);
 			//alert(JSON.stringify(data));
+		},
+		error: function() {
+			oReadyStateTimer = setInterval(function() {
+				if (document.readyState === "complete") {
+					clearInterval(oReadyStateTimer);
+					// initialize SIPML5
+					preInit();
+					sipRegister();
+				}
+			}, 500);
 		}
 	});
 
-	oReadyStateTimer = setInterval(function() {
-		if (document.readyState === "complete") {
-			clearInterval(oReadyStateTimer);
-			// initialize SIPML5
-			preInit();
-			sipRegister();
-		}
-	}, 500);
+	// oReadyStateTimer = setInterval(function() {
+	// 	if (document.readyState === "complete") {
+	// 		clearInterval(oReadyStateTimer);
+	// 		// initialize SIPML5
+	// 		preInit();
+	// 		sipRegister();
+	// 	}
+	// }, 500);
 
 	// if (document.readyState === "complete") {
 	//     preInit();
