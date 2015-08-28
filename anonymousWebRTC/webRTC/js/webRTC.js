@@ -110,7 +110,7 @@ window.onload = function() {
 		url: 'http://ip-api.com/json',
 		dataType: 'jsonp',
 		jsonp: "callback",
-		async: false,
+		async: true,
 		success: function(data) {
 			if (data) {
 				displayName = data.query;
@@ -1193,7 +1193,7 @@ function onSipEventSession(e /* SIPml.Session.Event */ ) {
 								$("#callStatusMsg").attr("src", "./webRTC/images/bars.svg");
 							}
 							//alert($("#video_local").attr("src"));
-							blertyPad.disabled = false;
+							btnKeyPad.disabled = false;
 						}
 					}
 					if (SIPml.isWebRtc4AllSupported()) { // IE don't provide stream callback
