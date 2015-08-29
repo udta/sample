@@ -1149,8 +1149,6 @@ input[type="submit"].btn.btn-mini {
 .bgBlack {
     background: black;
 }
-video {
-    &.local {
-        transform: rotateY(180deg);
-    }
+#video_remote {
+    transform: rotateY(180deg);
 }
