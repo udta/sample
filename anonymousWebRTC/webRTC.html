@@ -70,12 +70,12 @@
                 <!--/是否注册-->
                 <!--呼叫控制-->
                 <div class="section-title" locale="LANG4228" style="display: none">Call Control</div>
-                <div class="field-cell" style="display: none">
+<!--                 <div class="field-cell" style="display: none">
                     <div class="field-label">&nbsp;</div>
                     <div class="field-content">
                         <label align="center" id="txtCallStatus"></label>
                     </div>
-                </div>
+                </div> -->
                 <div class="field-cell" style="display: none">
                     <div class="field-label" glabel="@LANG4236" tooltip="@LANG4237">Dial Number:</div>
                     <div class="field-content">
@@ -93,7 +93,7 @@
                             </video>
                         </div>
                         <div id="divVideoLocalWrapper" class="local local-stream local-stream-audio room-preview">
-                            <!-- <iframe class="previewvideo" style="border:0px solid #009; z-index: 1000"> </iframe> -->
+                            <!-- <iframe class="pareviewvideo" style="border:0px solid #009; z-index: 1000"> </iframe> -->
                             <div id="divVideoLocal" class="previewvideo" style=' border:0px solid #009; z-index: 9000'>
                                 <video class="video" width="100%" height="100%" id="video_local" autoplay="autoplay" muted="true">
                                 </video>
@@ -107,7 +107,7 @@
                         <button type="button" id="btnAudio" class="btn btn-audio" onclick='sipCall("call-audio");' title="Audio"></button>
                     </li>
                     <li class="conversation-toolbar-btn-box">
-                        <button type="button" id="btnVideo" class="btn btn-video" onclick='sipCall("call-audiovideo");' title="Video"></button>
+                        <button type="button" id="btnVideo" class="btn btn-video" onclick='sipCall("call-audiovideo");' title="Video" disabled=true></button>
                     </li>
                     <li class="conversation-toolbar-btn-box">
                         <button type="button" id="btnMute" class="btn btn-unmute hide" title="Unmute" value="Unmute" onclick='sipToggleMute();' disabled=true></button>
@@ -170,7 +170,11 @@
             </table>
         </div>
     </div>
-    <div id="callStatus" style="position: absolute; top: 200px; z-index: 12000; width: 100%; text-align: center; display: none;"><img id="callStatusMsg" src="./webRTC/images/puff.svg" width="100" alt=""></div>
+    
+    <div id="callStatus" style="position: absolute; top: 200px; z-index: 12000; width: 100%; text-align: center;">
+        <label align="center" id="txtCallStatus">35345345</label>
+        <img id="callStatusMsg" src="./webRTC/images/puff.svg" width="100" alt="" style="display: none;">
+    </div>
     <!-- Audios -->
     <audio id="audio_remote" autoplay="autoplay" />
     <audio id="ringtone" loop src="./webRTC/sounds/ringtone.wav" />
