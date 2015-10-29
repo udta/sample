@@ -2,5 +2,5 @@
 	"realm": "Grandstream",
 	"impu": "sip:anonymous@anonymous.invalid",
 	"phone_number": "WebRTC",
-	"websocket_proxy_url": "ws://52.24.125.54:30000/ws"
+	"websocket_proxy_url": "ws://54.223.62.195:30002/ws"
 }
