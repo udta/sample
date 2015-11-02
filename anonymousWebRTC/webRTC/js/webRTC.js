@@ -19,7 +19,7 @@ var webrtcSettings = {
 	"realm": "Grandstream",
 	"impu": "sip:anonymous@anonymous.invalid",
 	"phone_number": "WebRTC",
-	"websocket_proxy_url": "ws://192.168.124.110:8088/ws"
+	"websocket_proxy_url": "ws://54.223.62.195:30005/ws"
 };
 var txtPhoneNumber = "WebRTC";
 var displayName = "Visitor";
