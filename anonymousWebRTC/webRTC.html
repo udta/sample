@@ -172,7 +172,11 @@
     </div>
     
     <div id="callStatus" style="position: absolute; top: 200px; z-index: 12000; width: 100%; text-align: center;">
-        <label align="center" id="txtCallStatus">35345345</label>
+        <label align="center" id="txtCallStatus"></label>
+        <br />
+        <textarea name="IM" id="IM" cols="2" rows="2"></textarea>
+        <br /><input type="button" id="btnSendMessageCallee" style="margin: 0; vertical-align:middle; height: 100%;" class="btn btn-primary" value="Send Message" onclick='sipSendMessage();' />
+        <label style="width: 100%;" align="center" id="txtMessage" ></label>
         <img id="callStatusMsg" src="./webRTC/images/puff.svg" width="100" alt="" style="display: none;">
     </div>
     <!-- Audios -->

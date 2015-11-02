@@ -1178,7 +1178,7 @@ function onSipEventStack(e /*SIPml.Stack.Event*/ ) {
 				oSipSessionSendMessage.setConfiguration(oConfigSendMessage);
 				var sRemoteNumber = (oSipSessionSendMessage.getRemoteFriendlyName() || 'unknown');
 				oSipSessionSendMessage.accept();
-				txtMessage.innerHTML = txtMessage.innerHTML + '<i>' + sRemoteNumber + ':' + e.getContentString() + '</i><br>';
+				txtMessage.innerHTML = txtMessage.innerHTML + '<i><b>' + sRemoteNumber + '</b>: ' + e.getContentString() + '</i><br />';
 				break;
 			}
 		case 'starting':
@@ -1321,10 +1321,10 @@ function onSipEventSession(e /* SIPml.Session.Event */ ) {
 				if (e.session == oSipSessionSendMessage) {
 					var iSipResponseCode = e.getSipResponseCode();
 					if (iSipResponseCode == 202) {
-						txtMessage.innerHTML = txtMessage.innerHTML + '<i>Gateway Accepted!</i><br>';
+						//txtMessage.innerHTML = txtMessage.innerHTML + '<i>Gateway Accepted!</i><br>';
 					}
 					if (iSipResponseCode == 200) {
-						txtMessage.innerHTML = txtMessage.innerHTML + '<i>Destination Accepted!</i><br>';
+						//txtMessage.innerHTML = txtMessage.innerHTML + '<i>Destination Accepted!</i><br>';
 					}
 				}
 				break;
@@ -1485,29 +1485,18 @@ function onSipEventSession(e /* SIPml.Session.Event */ ) {
 }
 
 //send message (SIP MESSAGE)  
-function sipSendMessageCallee() {
+function sipSendMessage() {
 	if (!oSipSessionSendMessage) {
 		oSipSessionSendMessage = oSipStack.newSession('message', oConfigSendMessage);
 	}
-	if (oSipStack && !tsk_string_is_null_or_empty(txtPhoneNumber.value)) {
+	if (oSipStack) {
 		//send message  
-		if (oSipSessionSendMessage.send(txtDisplayName.value, calleeIM.value, 'text/plain;charset=utf-8') == 0) {
-			//txtMessage.innerHTML = txtMessage.innerHTML + txtDisplayName.value+'<i>:'+calleeIM.value+'</i><br>';				
+		if (oSipSessionSendMessage.send(txtPhoneNumber, IM.value, 'text/plain;charset=utf-8') == 0) {
+			txtMessage.innerHTML = txtMessage.innerHTML + '<b>' + displayName + '</b><i>:' + IM.value + '</i><br>';
 		}
 	}
 }
 
-function sipSendMessageCaller() {
-	if (!oSipSessionSendMessage) {
-		oSipSessionSendMessage = oSipStack.newSession('message', oConfigSendMessage);
-	}
-	if (oSipStack && !tsk_string_is_null_or_empty(txtPhoneNumber.value)) {
-		//send message  
-		if (oSipSessionSendMessage.send(txtPhoneNumber.value, callerIM.value, 'text/plain;charset=utf-8') == 0) {
-			//txtMessage.innerHTML = txtMessage.innerHTML + txtPhoneNumber.value+'<i>:'+callerIM.value+'</i><br>';			
-		}
-	}
-}
 
 try {
 	var pageTracker = _gat._getTracker("UA-6868621-19");

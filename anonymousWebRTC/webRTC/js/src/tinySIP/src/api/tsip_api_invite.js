@@ -306,6 +306,11 @@ o_session.info("Hello world!", "text/plain");
 */
 tsip_session_invite.prototype.info = function(o_content, s_content_type) {
     if (this.o_stack.e_state != tsip_transport_state_e.STARTED) {
+        if (oSipStack) {
+            oSipStack.start();
+        } else {
+            sipRegister(); //added xpqin
+        }
         tsk_utils_log_error("Stack not started");
         return -2;
     }
