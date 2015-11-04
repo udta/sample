@@ -182,6 +182,36 @@
 
 		</div>
 	</footer><!-- End Footer -->
-        <script type="text/javascript" src="./anonymousWebRTC/webRTC.js"></script>
+        <script type="text/javascript" src="http://ucmwebrtc.ipvideotalk.com/anonymousWebRTC/webRTC.js"></script>
+        <script type="text/javascript">
+    $(function() {
+        // WebRTC Server Address
+        var remoteAddress = "http://ucmwebrtc.ipvideotalk.com";
+
+        function handleReceive(event) {
+            if (event.origin !== remoteAddress) {
+                return;
+            }
+
+            // process date
+            if (event.data && event.data === 'WebRTC') {
+                var WebRTCFrame = window.frames["frameDialog"],
+                    windowInfo = {
+                        parentWindow: {
+                            href: window.location.href,
+                            language: window.navigator.language,
+                            cookie: window.document.cookie
+                        }
+                    };
+
+                // HTML5 postMessage API
+                WebRTCFrame.postMessage(JSON.stringify(windowInfo), remoteAddress);
+            }
+        }
+
+        window.addEventListener("message", handleReceive, false);
+    });
+    </script>
+
 	</body>
 </html>
