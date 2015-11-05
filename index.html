@@ -182,36 +182,26 @@
 
 		</div>
 	</footer><!-- End Footer -->
-        <script type="text/javascript" src="http://ucmwebrtc.ipvideotalk.com/anonymousWebRTC/webRTC.js"></script>
-        <script type="text/javascript">
-    $(function() {
-        // WebRTC Server Address
-        var remoteAddress = "http://ucmwebrtc.ipvideotalk.com";
-
-        function handleReceive(event) {
-            if (event.origin !== remoteAddress) {
-                return;
-            }
-
-            // process date
-            if (event.data && event.data === 'WebRTC') {
-                var WebRTCFrame = window.frames["frameDialog"],
-                    windowInfo = {
-                        parentWindow: {
-                            href: window.location.href,
-                            language: window.navigator.language,
-                            cookie: window.document.cookie
-                        }
-                    };
-
-                // HTML5 postMessage API
-                WebRTCFrame.postMessage(JSON.stringify(windowInfo), remoteAddress);
-            }
-        }
-
-        window.addEventListener("message", handleReceive, false);
-    });
-    </script>
-
+        <script type="text/javascript"> 
+        window.GSWebRTCSettings = { 
+            server: { 
+                url: "http://ucmwebrtc.ipvideotalk.com", 
+                path: "GSWebRTC", 
+                version: "1.0" 
+            }, 
+            SIP: { 
+                realm: "Grandstream", 
+                impi: "Anonymous", 
+                impu: "sip:anonymous@anonymous.invalid", 
+                display_name: "Anonymous", 
+                phone_number: "WebRTC", 
+                sbc_account: "Trial15008c87" 
+            } 
+        };         var myScript = document.createElement("script");         myScript.type = "text/javascript"; 
+        myScript.src = (GSWebRTCSettings.server.url + "/" + 
+                        GSWebRTCSettings.server.path + "/" + 
+                        GSWebRTCSettings.server.version + "/" + 
+                        "webRTC.js");         document.body.appendChild(myScript); 
+        </script>
 	</body>
 </html>
